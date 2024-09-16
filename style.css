@@ -6,6 +6,14 @@ body {
     font-size: 30px;
     font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
+
+#point {
+    width: 10px;
+    height: 10px;
+    background-color: blue;
+    position: absolute;
+}
+
 #gamearena {
     width: 600px;
     height: 400px;
