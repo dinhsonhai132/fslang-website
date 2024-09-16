@@ -1,0 +1,32 @@
+body {
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+#score {
+    font-size: 30px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+#gamearena {
+    width: 600px;
+    height: 400px;
+    border: 2px solid black;
+    margin: 20px auto;
+    position: relative;
+    background-color: lightblue;
+}
+
+#bullet {
+    width: 15px;
+    height: 15px;
+    background-color: blueviolet;
+    position: absolute;
+    
+}
+
+#cube {
+    width: 30px;
+    height: 30px;
+    background-color: red;
+    position: absolute;
+    top: 50%;
+}
