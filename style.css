@@ -30,3 +30,19 @@ body {
     position: absolute;
     top: 50%;
 }
+
+a {
+    font-family: 'Roboto', sans-serif; 
+    font-size: 30px;
+    color: blue;
+    text-decoration: none; 
+}
+
+a:hover {
+    color: darkblue;
+    text-decoration: underline; 
+}
+
+a:visited {
+    color: purple;
+}
