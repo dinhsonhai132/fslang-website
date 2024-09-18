@@ -10,12 +10,16 @@ let pos_y = gamearena.clientHeight;
 let speed = 3;
 let jump = false;
 let ground = true;
-let height = 270;
-let gravity = 12;
+let height = 300;
+let gravity = 0.5;
 let keys = {};
 let bull_x = gamearena.clientHeight - bullet.clientHeight;
 let bull_y = gamearena.clientWidth;
 let point = 0;
+let time = 1;
+let vel = 0;
+let jump_vel = 0;
+let jump_speed = 10;
 
 window.addEventListener('keydown', (event) => {
     keys[event.key.toLowerCase()] = true;
@@ -39,7 +43,7 @@ function checkCollision(a, b) {
     }
 }
 
-function move(event) {
+function jumping_simualtor(event) {
     if (keys['a']) {
         pos_x -= speed;
     }
@@ -55,16 +59,21 @@ function move(event) {
 
     if (keys[' '] && ground == true) {
         jump = true;
+        jump_vel = jump_speed
     }
     if (jump) {
-        pos_y -= gravity;
+        jump_vel -= gravity
+        pos_y -= jump_vel;
         ground = false;
-    }
-    if (pos_y < height) {
-        jump = false;
+        time += 1;
+        if (jump_vel <= 0) {
+            jump = false
+        }
     }
     if (jump == false) {
-        pos_y += gravity;
+        vel += gravity
+        pos_y += vel;
+        time += 1;
     }
 
     if (pos_x < 0) {
@@ -78,6 +87,7 @@ function move(event) {
     } else if (pos_y > gamearena.clientHeight - cube.clientHeight) {
         pos_y = gamearena.clientHeight - cube.clientHeight;
         ground = true;
+        vel = 0;
     }
     
     if (bull_y < 0) {
@@ -107,8 +117,9 @@ function move(event) {
     cube.style.top = pos_y + 'px';
     point_score.style.left = point_x + 'px';
     point_score.style.top = point_y + 'px';
-    requestAnimationFrame(move);
+    requestAnimationFrame(jumping_simualtor);
 }
 
 bullet.style.top = bull_x + 'px'
-move()
+
+jumping_simualtor()
