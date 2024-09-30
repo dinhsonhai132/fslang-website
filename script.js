@@ -57,7 +57,7 @@ function jumping_simualtor(event) {
         speed = 5;
     }
 
-    if (keys[' '] && ground == true || keys['w'] && ground = true) {
+    if (keys[' '] && ground == true || keys['w'] && ground == true) {
         jump = true;
         jump_vel = jump_speed
     }
